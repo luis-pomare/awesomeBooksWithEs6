@@ -1,6 +1,4 @@
-import DomObject from "./modules/domReading.js";
-
-const domObject = new DomObject();
+import domObject from "./modules/domReading.js";
 
 // Create array to get input books (from input fields)
 let bookCollection = [];

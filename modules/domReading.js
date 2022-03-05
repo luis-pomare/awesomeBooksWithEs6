@@ -1,5 +1,5 @@
 // Dom elements object
-export default class DomObject {
+class DomObject {
   // Read elements from document
   bookInput = document.getElementById("bookInput");
   authorInput = document.getElementById("authorInput");
@@ -14,3 +14,5 @@ export default class DomObject {
   thirdItem = document.getElementById("thirdItem");
   mainContainer = document.getElementById("mainContainer");
 }
+const domObject = new DomObject();
+export default domObject;

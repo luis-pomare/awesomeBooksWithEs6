@@ -46,10 +46,13 @@ function renderCollection() {
     currentElement.innerHTML = `
       <div class="book ${background}">
       <p>"${bookCollection[i].book}" by ${bookCollection[i].author}</p>
-      <button id="${i}" onclick="removeBook(${i})">Remove</button>
+      <button id="${i}">Remove</button>
       </div>
     `;
     domObject.booksContainer.appendChild(currentElement);
+    document.getElementById(i).addEventListener("click", () => {
+      removeBook(i);
+    });
   }
 }
 

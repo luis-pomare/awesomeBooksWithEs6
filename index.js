@@ -1,4 +1,5 @@
 import domObject from "./modules/domReading.js";
+import createListeners from "./modules/switchPages.js";
 
 // Create array to get input books (from input fields)
 let bookCollection = [];
@@ -117,3 +118,5 @@ domObject.thirdItem.addEventListener("click", () => {
   domObject.secondItem.classList.remove("selected");
   domObject.thirdItem.classList.add("selected");
 });
+
+console.log(createListeners);

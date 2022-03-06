@@ -1,7 +1,6 @@
 import domObject from "./modules/domReading.js";
 import createListeners from "./modules/switchPages.js";
-import { DateTime } from "./modules/luxonLibrary.js";
-import displayDate from "./modules/currentDate.js";
+import dateDisplay from "./modules/currentDate.js";
 
 // Create array to get input books (from input fields)
 let bookCollection = [];
@@ -83,5 +82,5 @@ domObject.addButton.addEventListener("click", () => {
   }
 });
 
-displayDate();
+dateDisplay();
 createListeners();

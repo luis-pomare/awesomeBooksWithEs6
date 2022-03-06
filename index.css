@@ -85,10 +85,12 @@ h1 {
 }
 
 #copiRight {
-  position: absolute;
-  align-self: center;
-  bottom: 15px;
-  width: 95%;
+  width: auto;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  background-color: white;
 }
 
 form {

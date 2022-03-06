@@ -1,7 +1,11 @@
 import domObject from "./domReading.js";
-const setListeners = function () {
+import { DateTime } from "./luxonLibrary.js";
+
+const displayDate = function () {
   setInterval(() => {
-    domObject.date.innerHTML = Date();
+    domObject.date.innerHTML = DateTime.now().toLocaleString(
+      DateTime.DATETIME_MED_WITH_SECONDS
+    );
   }, 1000);
 };
-export default setListeners;
+export default displayDate;

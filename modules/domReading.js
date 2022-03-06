@@ -5,7 +5,6 @@ class DomObject {
   authorInput = document.getElementById("authorInput");
   addButton = document.getElementById("addButton");
   booksContainer = document.getElementById("booksContainer");
-  div = document.getElementById("div");
   date = document.getElementById("date");
   addContainer = document.getElementById("form");
   contactContainer = document.getElementById("contactContainer");

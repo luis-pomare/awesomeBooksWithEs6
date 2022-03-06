@@ -1,5 +1,6 @@
 import domObject from "./modules/domReading.js";
 import createListeners from "./modules/switchPages.js";
+import displayDate from "./modules/currentDate.js";
 
 // Create array to get input books (from input fields)
 let bookCollection = [];
@@ -85,8 +86,5 @@ domObject.div.addEventListener("click", () => {
   removeBook(0);
 });
 
-setInterval(() => {
-  domObject.date.innerHTML = Date();
-}, 1000);
-
+displayDate();
 createListeners();

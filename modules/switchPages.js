@@ -1,5 +1,5 @@
 import domObject from "./domReading.js";
-const primitive = function () {
+const setListeners = function () {
   domObject.firstItem.addEventListener("click", () => {
     domObject.mainContainer.classList.add("books");
     domObject.mainContainer.classList.remove("noVisible");
@@ -30,4 +30,4 @@ const primitive = function () {
     domObject.thirdItem.classList.add("selected");
   });
 };
-export default primitive;
+export default setListeners;

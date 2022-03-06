@@ -1,14 +1,14 @@
-import domObject from "./modules/domReading.js";
-import createListeners from "./modules/switchPages.js";
-import dateDisplay from "./modules/currentDate.js";
+import domObject from './modules/domReading.js';
+import createListeners from './modules/switchPages.js';
+import dateDisplay from './modules/currentDate.js';
 
 // Create array to get input books (from input fields)
 let bookCollection = [];
 let index = 0;
 
 // If there is something in local storage, it is taken by the main array
-if (JSON.parse(localStorage.getItem("bookArray")) !== null) {
-  bookCollection = JSON.parse(localStorage.getItem("bookArray"));
+if (JSON.parse(localStorage.getItem('bookArray')) !== null) {
+  bookCollection = JSON.parse(localStorage.getItem('bookArray'));
   index = bookCollection.length;
 }
 
@@ -26,22 +26,22 @@ class Entry {
 function newBook() {
   bookCollection[index] = new Entry(
     domObject.authorInput.value,
-    domObject.bookInput.value
+    domObject.bookInput.value,
   );
-  localStorage.setItem("bookArray", JSON.stringify(bookCollection));
+  localStorage.setItem('bookArray', JSON.stringify(bookCollection));
   index += 1;
 }
 
 // Refreshes the page with all the data in the array
 function renderCollection() {
-  domObject.booksContainer.innerHTML = "";
+  domObject.booksContainer.innerHTML = '';
   for (let i = 0; i < index; i += 1) {
-    const currentElement = document.createElement("div");
-    let background = "";
+    const currentElement = document.createElement('div');
+    let background = '';
     if (i % 2 === 0) {
-      background = "dark";
+      background = 'dark';
     } else {
-      background = "";
+      background = '';
     }
     currentElement.innerHTML = `
       <div class="book ${background}">
@@ -50,7 +50,7 @@ function renderCollection() {
       </div>
     `;
     domObject.booksContainer.appendChild(currentElement);
-    document.getElementById(i).addEventListener("click", () => {
+    document.getElementById(i).addEventListener('click', () => {
       removeBook(i);
     });
   }
@@ -58,24 +58,24 @@ function renderCollection() {
 
 let removeBook = function (position) {
   bookCollection = bookCollection.filter(
-    (item) => bookCollection.indexOf(item) !== position
+    (item) => bookCollection.indexOf(item) !== position,
   );
   index -= 1;
-  localStorage.setItem("bookArray", JSON.stringify(bookCollection));
+  localStorage.setItem('bookArray', JSON.stringify(bookCollection));
   renderCollection();
 };
 
 function clearInputs() {
-  domObject.bookInput.value = "";
-  domObject.authorInput.value = "";
+  domObject.bookInput.value = '';
+  domObject.authorInput.value = '';
 }
 
 // Updates the interface with storeged books
 renderCollection();
 
 // Main add function
-domObject.addButton.addEventListener("click", () => {
-  if (domObject.bookInput.value !== "" && domObject.authorInput.value !== "") {
+domObject.addButton.addEventListener('click', () => {
+  if (domObject.bookInput.value !== '' && domObject.authorInput.value !== '') {
     newBook();
     renderCollection();
     clearInputs();

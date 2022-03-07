@@ -32,6 +32,18 @@ function newBook() {
   index += 1;
 }
 
+const removeBook = function (position) {
+  bookCollection = bookCollection.filter(
+    (item) => bookCollection.indexOf(item) !== position,
+  );
+  index -= 1;
+  localStorage.setItem('bookArray', JSON.stringify(bookCollection));
+};
+
+function removeBookCall(i) {
+  removeBook(i);
+}
+
 // Refreshes the page with all the data in the array
 function renderCollection() {
   domObject.booksContainer.innerHTML = '';
@@ -51,19 +63,14 @@ function renderCollection() {
     `;
     domObject.booksContainer.appendChild(currentElement);
     document.getElementById(i).addEventListener('click', () => {
-      removeBook(i);
+      removeBookCall(i);
     });
   }
 }
 
-let removeBook = function (position) {
-  bookCollection = bookCollection.filter(
-    (item) => bookCollection.indexOf(item) !== position,
-  );
-  index -= 1;
-  localStorage.setItem('bookArray', JSON.stringify(bookCollection));
+setInterval(() => {
   renderCollection();
-};
+}, 700);
 
 function clearInputs() {
   domObject.bookInput.value = '';
